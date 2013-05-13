@@ -18,3 +18,5 @@ C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x8
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x86\Debug\NewAccount.g.cs
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x86\Debug\ClientWindow.baml
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x86\Debug\ClientWindow.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.exe
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.pdb
