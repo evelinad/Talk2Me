@@ -193,7 +193,13 @@ namespace Server
         public static void message(Login mess, Socket handler)
         {
             // TODO INTEROGARE BAZA DE DATE, user valid
-            map.Add(mess.Username, handler);
+            if (!map.ContainsKey(mess.Username))
+            {
+                map.Add(mess.Username, handler);
+
+            }
+            else
+                map[mess.Username] = handler;
             String a = "" + mess.Username + " " + mess.Password;
             Console.WriteLine(a);
             // TODO TRIMITERE MESAJ
@@ -202,10 +208,11 @@ namespace Server
         public  static void message(Message mess, Socket handler)
         {
             Socket destination;
-            if (map.TryGetValue(mess.SourceName, out destination))
+             if (map.TryGetValue(mess.SourceName, out destination))
             {
 
             }
+           
 
         }
 

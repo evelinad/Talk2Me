@@ -20,3 +20,21 @@ C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x8
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_login\Talk2Me_login\obj\x86\Debug\ClientWindow.g.cs
 D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.exe
 D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.pdb
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\bin\Debug\Talk2Me_login.exe
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\bin\Debug\Talk2Me_login.pdb
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\ClientWindow.baml
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Help.baml
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\MainWindow.baml
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\NewAccount.baml
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Passwordrecovery.baml
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\ClientWindow.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Help.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\MainWindow.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\NewAccount.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Passwordrecovery.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\App.g.cs
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login_MarkupCompile.cache
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.g.resources
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.AboutBoxTalkToMe.resources
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.Properties.Resources.resources
+D:\Facultate\an3\sem2\IP_GIT\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.csproj.GenerateResource.Cache

@@ -65,19 +65,26 @@
     <Compile Include="AboutBoxTalkToMe.Designer.cs">
       <DependentUpon>AboutBoxTalkToMe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Authentication.cs" />
+    <Compile Include="ClientServerCommunicator.cs" />
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FriendOp.cs" />
     <Compile Include="GmailSender.cs" />
     <Compile Include="Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
+    <Compile Include="Mesaj.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="NewAccount.xaml.cs">
       <DependentUpon>NewAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="Passwordrecovery.xaml.cs">
       <DependentUpon>Passwordrecovery.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StateStatus.cs" />
     <Compile Include="Users.cs" />
     <Page Include="ClientWindow.xaml">
       <SubType>Designer</SubType>

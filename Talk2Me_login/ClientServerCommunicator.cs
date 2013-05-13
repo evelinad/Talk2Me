@@ -21,6 +21,8 @@ namespace Talk2Me_login
         static ManualResetEvent connectDone = new ManualResetEvent(false);
         static ManualResetEvent sendDone = new ManualResetEvent(false);
 
+        public static Socket server_socket; 
+
         class StateObject
         {
             public Socket connection = null;
@@ -38,8 +40,14 @@ namespace Talk2Me_login
             public int type = -1;
         }
 
-   
 
+        public static void InitConection()
+        {
+            server_socket = Connect();
+        }
+
+
+        /*
         public static void SendMessageAsync(string message)
         {
             // Initiate connecting to the server
@@ -64,11 +72,12 @@ namespace Talk2Me_login
             connection.BeginReceive(state.buffer, 0, StateObject.bufferSize,
                 SocketFlags.None, new AsyncCallback(ReadCallback), state);
 
-
-
-
-
         }
+       
+         */
+
+
+
 
         public static Socket Connect()
         {

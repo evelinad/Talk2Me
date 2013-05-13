@@ -50,7 +50,17 @@ namespace Talk2Me_login
                                     {
                                         checkBox2.IsChecked = true;
                                         user = connSQL.getUser(UsernameTextbox.Text, PasswordTextBox.Text);
-                                        if (user != null) MessageBox.Show("Authentication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                                        if (user != null)
+                                        {
+                                            ClientServerCommunicator.InitConection();
+                                            Login mess = new Login();
+                                            mess.Username = UsernameTextbox.Text;
+                                            mess.Password = PasswordTextBox.Text;
+                                            byte[] buff = mess.Serialize();
+                                            ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 3);
+
+                                            MessageBox.Show("Authentication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                                        }
                                         else MessageBox.Show("Authentication failed", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Stop);
                                         if (user != null)
                                         {
@@ -92,6 +102,13 @@ namespace Talk2Me_login
             if (user!=null)
             {
                 MessageBox.Show("Autehtication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                ClientServerCommunicator.InitConection();
+                Login mess = new Login();
+                mess.Username = UsernameTextbox.Text;
+                mess.Password = PasswordTextBox.Text;
+                byte[] buff = mess.Serialize();
+                ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 3);
+
                 if (checkBox1.IsChecked==true)
                 {
                 try
