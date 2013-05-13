@@ -1,0 +1,8 @@
+﻿<Window x:Class="Talk2Me_login.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Help" Height="300" Width="300">
+    <Grid>
+        <TextBlock Height="237" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="TalkToMe help content" VerticalAlignment="Top" Width="254" />
+    </Grid>
+</Window>

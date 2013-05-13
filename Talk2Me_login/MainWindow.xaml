@@ -1,0 +1,27 @@
+﻿<Window x:Class="Talk2Me_login.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="521" Width="346">
+    <Grid>
+        <Button Content="Sign In" Height="28" HorizontalAlignment="Left" Margin="80,357,0,0" Name="button1" VerticalAlignment="Top" Width="138" Click="button1_Click" />
+        <Menu Height="23" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="374">
+            <MenuItem Header="Messenger">
+                <MenuItem Header="_Exit"  Click="MenuItemExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="Messenger Help" Click="MenuItemHelp_Click" />
+                <Separator />
+                <MenuItem Header="About TalkToMe" Click="MenuItemAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBox Height="23"   HorizontalAlignment="Left" Margin="73,117,0,0" Name="UsernameTextbox" VerticalAlignment="Top" Width="192" />
+        <Label Content="TalkToMe ID" Height="28" HorizontalAlignment="Left" Margin="73,83,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Password" Height="28" HorizontalAlignment="Right" Margin="0,155,200,0" Name="label2" VerticalAlignment="Top" />
+        <CheckBox Content="Remember my ID &amp; password" Height="19" HorizontalAlignment="Left" Margin="80,243,0,0" Name="checkBox1" VerticalAlignment="Top" Width="185" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" />
+        <CheckBox Content="Sign in automatically" Height="19" HorizontalAlignment="Left" Margin="80,268,0,0" Name="checkBox2" VerticalAlignment="Top" Width="185" />
+        <CheckBox Content="Sign in as invisible to everyone" Height="19" HorizontalAlignment="Left" Margin="80,292,0,0" Name="checkBox3" VerticalAlignment="Top" Width="185" />
+        <Button Content="Get new Talk2Me ID ..." Height="28" HorizontalAlignment="Left" Margin="81,0,0,63" Name="button2" VerticalAlignment="Bottom" Width="137" Click="button2_Click" />
+        <Button Content="Forgot your password?" Height="28" HorizontalAlignment="Left" Margin="80,426,0,0" Name="button3" VerticalAlignment="Top" Width="137" Click="button3_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="73,189,0,0" Name="PasswordTextBox" VerticalAlignment="Top" Width="192" />
+    </Grid>
+</Window>
