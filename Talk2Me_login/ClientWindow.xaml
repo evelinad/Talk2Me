@@ -26,20 +26,11 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,80,0,0" Name="textBlock1" Text="Type some contact  information:" VerticalAlignment="Top" Width="254" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,22,0,0" Name="hellouser" Text="Hi," VerticalAlignment="Top" Width="112" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,51,0,0" Name="status" Text="Choose your status:" VerticalAlignment="Top" Width="112" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="38,109,0,0" Name="textBox1" VerticalAlignment="Top" Width="254" />
-        <ListBox Height="302" HorizontalAlignment="Left" Margin="38,138,0,0" Name="listBox1" VerticalAlignment="Top" Width="254" >
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="38,109,0,0" Name="textBox1" VerticalAlignment="Top" Width="254" TextChanged="textBox1_TextChanged" />
+        <ListBox Height="302" HorizontalAlignment="Left" Margin="38,138,0,0" Name="listBox1" VerticalAlignment="Top" Width="254">
 
             <ListBox.Items>
-                <Label Height="40" HorizontalAlignment="Center" Width="234" FontWeight="ExtraBold" Content="Friends" Name="friends"></Label>
-                <Label Height="40" HorizontalAlignment="Stretch" Width="234"  Content="Me" Name="Me" VerticalContentAlignment="Top" FlowDirection="LeftToRight"></Label>
-                <TextBlock Height="40">Text3</TextBlock>
-                <TextBlock Height="40">Text4</TextBlock>
-                <TextBlock Height="40">Text5</TextBlock>
-                <TextBlock Height="40">Text6</TextBlock>
-                <TextBlock Height="40">Text7</TextBlock>
-                <TextBlock Height="40">Text8</TextBlock>
-                <TextBlock Height="40">Text9</TextBlock>
-                <TextBlock Height="40">Text10</TextBlock>
+                <Label Height="40" IsEnabled="False">Text1</Label>
             </ListBox.Items>
         </ListBox>
     </Grid>
