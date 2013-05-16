@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Talk2Me_login
 {
@@ -153,7 +154,13 @@ namespace Talk2Me_login
                 cw.Show();
             }
         }
-
+        protected override void OnClosing( CancelEventArgs e)
+        {
+            MessageBoxResult msgboxresult = MessageBox.Show("Are you sure you want to exit Talk2Me?", "Talk2Me", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (msgboxresult == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
+            else e.Cancel = true;
+        }
         private void MenuItemSignOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
