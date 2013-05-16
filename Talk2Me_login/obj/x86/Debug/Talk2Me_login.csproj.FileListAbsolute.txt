@@ -93,6 +93,5 @@ C:\Users\evelina\Talk2Me\Talk2Me_login\bin\Debug\zh-Hans\System.Windows.Interact
 C:\Users\evelina\Talk2Me\Talk2Me_login\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ChatWindow.baml
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ChatWindow.g.cs
-C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\Talk2Me_login.csprojResolveAssemblyReference.cache
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\UpdateAccount.baml
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\UpdateAccount.g.cs

@@ -136,16 +136,22 @@ namespace Talk2Me_login
 
         private void Label_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
+          
            ConnSQL connSQL = new ConnSQL();
-            
-            Label chatPartnerLable = (Label)sender;
-            ChatWindow cw = new ChatWindow();
-
-            
-            cw.label1.Content = chatPartnerLable.Content.ToString();
-            cw.conversationPartnerID = connSQL.getID(chatPartnerLable.Content.ToString());
-            cw.Show();
            
+            Label chatPartnerLable = (Label)sender;
+            int id = connSQL.getID(chatPartnerLable.Content.ToString());
+            if (id == -1) MessageBox.Show("An error has occurred. You might have accesed a user that does not exist anymore.", "Talk2Me Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+            else
+            {
+                ChatWindow cw = new ChatWindow();
+                cw.label1.Content = chatPartnerLable.Content.ToString();
+                cw.conversationPartnerID = id;
+            //    MessageBox.Show(chatPartnerLable.Content.ToString());
+                cw.conversationPartnerUser = connSQL.getUser(chatPartnerLable.Content.ToString());
+             //   MessageBox.Show(cw.conversationPartnerUser.FirstName);
+                cw.Show();
+            }
         }
 
         private void MenuItemSignOut_Click(object sender, RoutedEventArgs e)

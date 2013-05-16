@@ -121,6 +121,57 @@ namespace Talk2Me_login
            
             return null;
         }
+        public Users getUser(string username)
+        {
+            Users user = new Users();
+            try
+            {
+                SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString());
+                SqlCommand command = conn.CreateCommand();
+                conn.Open();
+                string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON select * from talk2me.dbo.Users where username ='"+username+"' SET IDENTITY_INSERT talk2me.dbo.Users OFF";
+                command.CommandText = cmd;
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                user.Username = reader["username"].ToString();
+                user.ID = Convert.ToInt16(reader["ID"].ToString());
+                user.Password = reader["password"].ToString();
+                user.Gender = reader["gender"].ToString();
+                user.Birtplace = reader["birthplace"].ToString();
+                user.Birthdate = reader["birthdate"].ToString();
+                user.Telephone = reader["telephone"].ToString();
+                user.PersonalInterest = reader["personal_interest"].ToString();
+                user.Education = reader["education"].ToString();
+                user.Workplace = reader["workplace"].ToString();
+                user.CurrentCity = reader["current_city"].ToString();
+                user.Country = reader["country"].ToString();
+                user.Address = reader["address"].ToString();
+                user.Nationality = reader["nationality"].ToString();
+                user.Languages = reader["languages"].ToString();
+                user.GroupsFriends = reader["groups_friends"].ToString();
+                user.SecretQuestion = reader["secret_question"].ToString();
+                user.SecretAnswer = reader["secret_answer"].ToString();
+                user.Email = reader["email"].ToString();
+                user.Status = reader["status"].ToString();
+                user.FirstName = reader["first_name"].ToString();
+                user.LastName = reader["last_name"].ToString();
+
+
+
+
+                conn.Close();
+                return user;
+
+            }
+            catch (Exception exc)
+            {
+                //MessageBox.Show("An error has occured:\n" + exc.ToString());
+                GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
+            }
+
+            return null;
+        }
         public bool authentication(string username, string password)
         {
             string _username, _password;
@@ -223,7 +274,7 @@ namespace Talk2Me_login
         }
        public int getID(string username)
         {
-            int nr=0;
+            int id=-1;
             try
             {
                 using (SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString()))
@@ -237,7 +288,7 @@ namespace Talk2Me_login
                         {
                             while (reader.Read())
                             {
-                                return Convert.ToInt32(reader["ID"].ToString());
+                                id= Convert.ToInt32(reader["ID"].ToString());
                             }
                         }
                         conn.Close();
@@ -250,9 +301,42 @@ namespace Talk2Me_login
                 //MessageBox.Show("An error has occured:\n" + exc.ToString());
                 GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
             }
-            return -1;
+            return id;
         }
+
+       public string getName(string username)
+       {
+           string name = null;
+           try
+           {
+               using (SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString()))
+               {
+                   using (SqlCommand command = conn.CreateCommand())
+                   {
+                       conn.Open();
+                       string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON select first_name, last_name from talk2me.dbo.Users where  username= '" + username + "'SET IDENTITY_INSERT talk2me.dbo.Users OFF";
+                       command.CommandText = cmd;
+                       using (SqlDataReader reader = command.ExecuteReader())
+                       {
+                           while (reader.Read())
+                           {
+                               name = reader["first_name"].ToString()+" "+reader["last_name"].ToString();
+                           }
+                       }
+                       conn.Close();
+                   }
+
+               }
+           }
+           catch (Exception exc)
+           {
+               //MessageBox.Show("An error has occured:\n" + exc.ToString());
+               GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
+           }
+           return name;
+       }
       
+ 
         public int selectAll()
         {
            
