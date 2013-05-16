@@ -147,7 +147,7 @@ namespace Talk2Me_login
             {
                 ChatWindow cw = new ChatWindow();
                 cw.label1.Content = chatPartnerLable.Content.ToString();
-                
+                cw.currentUser = this.user;
             //    MessageBox.Show(chatPartnerLable.Content.ToString());
                 cw.conversationPartnerUser = user;
              //   MessageBox.Show(cw.conversationPartnerUser.FirstName);

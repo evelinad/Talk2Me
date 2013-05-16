@@ -22,6 +22,7 @@ namespace Talk2Me_login
         
         
         public Users conversationPartnerUser { get; set; }
+        public Users currentUser { get;set; }
         private Dictionary<string, string> _mappings = new Dictionary<string, string>();
         
         public ChatWindow()
