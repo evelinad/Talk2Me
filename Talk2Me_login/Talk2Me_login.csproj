@@ -37,11 +37,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=9.3.0.4, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="IAT">
+      <HintPath>..\..\Downloads\Backup Versiuni2\Backup Versiuni\ICv6\IAT\bin\Debug\IAT.exe</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Effects, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.Maps.MapControl.WPF">
+      <HintPath>..\..\..\..\Program Files\Bing Maps WPF Control\V1\Libraries\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -50,6 +63,17 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Talk2Me_beta">
+      <HintPath>..\..\Documents\Visual Studio 2010\Talk2Me_beta\Talk2Me_beta\bin\Debug\Talk2Me_beta.exe</HintPath>
+    </Reference>
+    <Reference Include="Talk2Me_interfata">
+      <HintPath>..\..\Documents\Visual Studio 2010\Talk2Me_interfata_Copy1_Copy1\Talk2Me_interfata\bin\Debug\Talk2Me_interfata.exe</HintPath>
+    </Reference>
+    <Reference Include="ucmed">
+      <HintPath>..\..\Downloads\Backup Versiuni2\Backup Versiuni\ICv6\IAT\bin\Debug\ucmed.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -66,6 +90,9 @@
       <DependentUpon>AboutBoxTalkToMe.cs</DependentUpon>
     </Compile>
     <Compile Include="Authentication.cs" />
+    <Compile Include="ChatWindow.xaml.cs">
+      <DependentUpon>ChatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClientServerCommunicator.cs" />
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
@@ -86,6 +113,10 @@
     </Compile>
     <Compile Include="StateStatus.cs" />
     <Compile Include="Users.cs" />
+    <Page Include="ChatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

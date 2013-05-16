@@ -77,7 +77,7 @@ namespace Talk2Me_login
                                             }
                                             ClientWindow clientwin = new ClientWindow();
                                             clientwin.setUser(user);
-                                           
+                                            this.Hide();
                                             clientwin.Show();
                                         }
                                     }
@@ -135,7 +135,7 @@ namespace Talk2Me_login
                     
                     ClientWindow clientwin = new ClientWindow();
                     clientwin.setUser( user);
-                    
+                    this.Hide();
                     clientwin.Show();
                 }
                 catch (Exception exc)

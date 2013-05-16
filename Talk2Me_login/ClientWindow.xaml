@@ -30,8 +30,11 @@
         <ListBox Height="302" HorizontalAlignment="Left" Margin="38,138,0,0" Name="listBox1" VerticalAlignment="Top" Width="254">
 
             <ListBox.Items>
-                <Label Height="40" IsEnabled="False">Text1</Label>
+
+
+               
             </ListBox.Items>
         </ListBox>
+        
     </Grid>
 </Window>

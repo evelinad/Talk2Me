@@ -22,12 +22,15 @@ namespace Talk2Me_login
     {
         public Users user;
         public List<GroupsFriends> list_gf;
+
         public ClientWindow()
         {
             list_gf = new List<GroupsFriends>();
             InitializeComponent();
+         
 
         }
+        
         public void setUser(Users user)
         {
             this.user = user;
@@ -50,6 +53,7 @@ namespace Talk2Me_login
                 newlabel.HorizontalAlignment = HorizontalAlignment.Center;
                 newlabel.Width = 234;
                 newlabel.FontSize = 14;
+                newlabel.Foreground = new SolidColorBrush(Colors.Blue);
                 GroupsFriends newgf = new GroupsFriends();
 
                 newlabel.FontWeight = FontWeights.ExtraBold;
@@ -59,19 +63,19 @@ namespace Talk2Me_login
                 for (int k = 1; k < friends.Length; k++)
                     if (friends[k].CompareTo(" ") != 0 && friends[k].CompareTo("") != 0)
                     {
-                       // MessageBox.Show("cuc" + friends[k] + "cuc");
+                       
                         newlabel = new Label();
                         newlabel.Height = 40;
                         newlabel.HorizontalAlignment = HorizontalAlignment.Center;
                         newlabel.Width = 234;
-                        // newlabel.FontWeight = FontWeights.ExtraBold;
+                        
                         newlabel.Content = friends[k];
-                        //    newlabel.MouseLeftButtonUp+= new MouseButtonEventArgs(label_MouseLeftButtonUp);
+                        newlabel.MouseLeftButtonUp+= new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
                         newgf.friends.Add(friends[k]);
                         listBox1.Items.Add(newlabel);
                     }
                 list_gf.Add(newgf);
-                //   MessageBox.Show(groups[i]);
+                
             }
             //   MessageBox.Show(groups.Length.ToString());
             //Label Height="40" HorizontalAlignment="Center" Width="234" FontWeight="ExtraBold" Content="Friends" Name="friends"
@@ -93,11 +97,11 @@ namespace Talk2Me_login
                     newlabel.HorizontalAlignment = HorizontalAlignment.Center;
                     newlabel.Width = 234;
                     newlabel.FontSize = 14;
-
+                    newlabel.Foreground = new SolidColorBrush(Colors.Blue);
 
                     newlabel.FontWeight = FontWeights.ExtraBold;
                     newlabel.Content = list_gf[i];
-
+                 
                     listBox1.Items.Add(newlabel);
 
                     for (int j = 0; j < list_gf[i].friends.Count(); j++)
@@ -110,6 +114,7 @@ namespace Talk2Me_login
                             newlabel.Width = 234;
                             newlabel.FontSize = 14;
                             newlabel.Content = list_gf[i].friends[j];
+                            newlabel.MouseLeftButtonUp += new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
                             listBox1.Items.Add(newlabel);
                         }
                     }
@@ -120,13 +125,25 @@ namespace Talk2Me_login
 
         }
 
-        private void listBox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
+        //private void listBox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
 
-        }
+        //}
         private void label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            
+        }
 
+        private void Label_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        {
+            
+            Label chatPartnerLable = (Label)sender;
+            ChatWindow cw = new ChatWindow();
+
+            
+            cw.label1.Content = chatPartnerLable.Content.ToString();
+            cw.Show();
+           
         }
     }
     public class GroupsFriends
