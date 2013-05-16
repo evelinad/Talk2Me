@@ -19,7 +19,7 @@ namespace Talk2Me_login
     /// 
     public partial class ChatWindow : Window
     {
-        public  int conversationPartnerID { get; set; }
+        
         
         public Users conversationPartnerUser { get; set; }
         private Dictionary<string, string> _mappings = new Dictionary<string, string>();
@@ -151,7 +151,7 @@ namespace Talk2Me_login
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-      //      MessageBox.Show(conversationPartnerID.ToString()+" "+ conversationPartnerUser.FirstName);
+     //      MessageBox.Show(conversationPartnerUser.FirstName);
             richTextBox1.AppendText(textBox1.Text + "\r\n");
             textBox1.Clear();
             SendMessage();

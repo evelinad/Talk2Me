@@ -272,71 +272,8 @@ namespace Talk2Me_login
             }
 
         }
-       public int getID(string username)
-        {
-            int id=-1;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString()))
-                {
-                    using (SqlCommand command = conn.CreateCommand())
-                    {
-                        conn.Open();
-                        string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON select id from talk2me.dbo.Users where  username= '"+username+"'SET IDENTITY_INSERT talk2me.dbo.Users OFF";
-                        command.CommandText = cmd;
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                id= Convert.ToInt32(reader["ID"].ToString());
-                            }
-                        }
-                        conn.Close();
-                    }
-
-                }
-            }
-            catch (Exception exc)
-            {
-                //MessageBox.Show("An error has occured:\n" + exc.ToString());
-                GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
-            }
-            return id;
-        }
-
-       public string getName(string username)
-       {
-           string name = null;
-           try
-           {
-               using (SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString()))
-               {
-                   using (SqlCommand command = conn.CreateCommand())
-                   {
-                       conn.Open();
-                       string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON select first_name, last_name from talk2me.dbo.Users where  username= '" + username + "'SET IDENTITY_INSERT talk2me.dbo.Users OFF";
-                       command.CommandText = cmd;
-                       using (SqlDataReader reader = command.ExecuteReader())
-                       {
-                           while (reader.Read())
-                           {
-                               name = reader["first_name"].ToString()+" "+reader["last_name"].ToString();
-                           }
-                       }
-                       conn.Close();
-                   }
-
-               }
-           }
-           catch (Exception exc)
-           {
-               //MessageBox.Show("An error has occured:\n" + exc.ToString());
-               GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
-           }
-           return name;
-       }
-      
- 
+    
+    
         public int selectAll()
         {
            

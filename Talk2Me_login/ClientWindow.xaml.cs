@@ -140,15 +140,15 @@ namespace Talk2Me_login
            ConnSQL connSQL = new ConnSQL();
            
             Label chatPartnerLable = (Label)sender;
-            int id = connSQL.getID(chatPartnerLable.Content.ToString());
-            if (id == -1) MessageBox.Show("An error has occurred. You might have accesed a user that does not exist anymore.", "Talk2Me Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+            Users user = connSQL.getUser(chatPartnerLable.Content.ToString());
+            if (user == null) MessageBox.Show("An error has occurred. You might have accesed a user that does not exist anymore.", "Talk2Me Error", MessageBoxButton.OK, MessageBoxImage.Stop);
             else
             {
                 ChatWindow cw = new ChatWindow();
                 cw.label1.Content = chatPartnerLable.Content.ToString();
-                cw.conversationPartnerID = id;
+                
             //    MessageBox.Show(chatPartnerLable.Content.ToString());
-                cw.conversationPartnerUser = connSQL.getUser(chatPartnerLable.Content.ToString());
+                cw.conversationPartnerUser = user;
              //   MessageBox.Show(cw.conversationPartnerUser.FirstName);
                 cw.Show();
             }
