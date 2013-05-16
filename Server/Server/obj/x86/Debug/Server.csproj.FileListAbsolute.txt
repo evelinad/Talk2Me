@@ -1,0 +1,5 @@
+C:\Users\evelina\Talk2Me\Server\Server\bin\Debug\Server.exe
+C:\Users\evelina\Talk2Me\Server\Server\bin\Debug\Server.pdb
+C:\Users\evelina\Talk2Me\Server\Server\obj\x86\Debug\Server.exe
+C:\Users\evelina\Talk2Me\Server\Server\obj\x86\Debug\Server.pdb
+C:\Users\evelina\Talk2Me\Server\Server\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
