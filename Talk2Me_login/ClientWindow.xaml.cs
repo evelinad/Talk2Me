@@ -136,12 +136,14 @@ namespace Talk2Me_login
 
         private void Label_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
+           ConnSQL connSQL = new ConnSQL();
             
             Label chatPartnerLable = (Label)sender;
             ChatWindow cw = new ChatWindow();
 
             
             cw.label1.Content = chatPartnerLable.Content.ToString();
+            cw.conversationPartnerID = connSQL.getID(chatPartnerLable.Content.ToString());
             cw.Show();
            
         }

@@ -112,6 +112,9 @@
       <DependentUpon>Passwordrecovery.xaml</DependentUpon>
     </Compile>
     <Compile Include="StateStatus.cs" />
+    <Compile Include="UpdateAccount.xaml.cs">
+      <DependentUpon>UpdateAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs" />
     <Page Include="ChatWindow.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Passwordrecovery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
