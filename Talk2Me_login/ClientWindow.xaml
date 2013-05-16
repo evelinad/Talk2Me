@@ -10,9 +10,9 @@
         </ComboBox>
         <Menu Height="23" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="331">
             <MenuItem Header="Messenger">
-                <MenuItem Header="&amp;Edit my contact details" />
-                <MenuItem Header="Sign out" />
-                <MenuItem Header="Close" />
+                <MenuItem Header="Edit my contact details" Click="MenuItemEditContactDetails_Click" />
+                <MenuItem Header="Sign out" Click="MenuItemSignOut_Click" />
+                <MenuItem Header="Close" Click="MenuItemClose_Click" />
             </MenuItem>
             <MenuItem Header="Contacts">
                 <MenuItem Header="Add contact" />

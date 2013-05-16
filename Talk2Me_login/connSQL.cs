@@ -221,7 +221,7 @@ namespace Talk2Me_login
             }
 
         }
-        public int getID(string username)
+       public int getID(string username)
         {
             int nr=0;
             try
@@ -237,7 +237,7 @@ namespace Talk2Me_login
                         {
                             while (reader.Read())
                             {
-                                nr++;
+                                return Convert.ToInt32(reader["ID"].ToString());
                             }
                         }
                         conn.Close();
@@ -250,8 +250,9 @@ namespace Talk2Me_login
                 //MessageBox.Show("An error has occured:\n" + exc.ToString());
                 GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
             }
-            return nr;
+            return -1;
         }
+      
         public int selectAll()
         {
            

@@ -145,6 +145,24 @@ namespace Talk2Me_login
             cw.Show();
            
         }
+
+        private void MenuItemSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MenuItemClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MenuItemEditContactDetails_Click(object sender, RoutedEventArgs e)
+        {
+            NewAccount na = new NewAccount();
+            na.Show();
+
+
+        }
     }
     public class GroupsFriends
     {
