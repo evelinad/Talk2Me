@@ -90,7 +90,7 @@ namespace Talk2Me_login
             {
 
 
-                MessageBox.Show(SelectGroupComboBox.Text);
+         //       MessageBox.Show(SelectGroupComboBox.Text);
                 string str = currentUser.GroupsFriends;
                 string delimit = ",";
                 string[] groups = null;
@@ -107,7 +107,7 @@ namespace Talk2Me_login
 
                     friends = group.Split(delimit.ToCharArray());
                     //    newlabel.Content = friends[0];
-                    MessageBox.Show(friends[0]);
+            //        MessageBox.Show(friends[0]);
                     if (SelectGroupComboBox.Text.CompareTo(friends[0]) == 0)
                         break;
                 }
@@ -132,7 +132,7 @@ namespace Talk2Me_login
                 newgroupfriend += "]";
                 ConnSQL connSQL = new ConnSQL();
                 this.currentUser.GroupsFriends = this.currentUser.GroupsFriends.Replace(group, newgroupfriend);
-                MessageBox.Show(newgroupfriend);
+       //         MessageBox.Show(newgroupfriend);
                 connSQL.updateGF(this.currentUser.Username, this.currentUser.GroupsFriends);
                 parrentCW.user = currentUser;
                 parrentCW.updateContactListBox();
@@ -145,11 +145,11 @@ namespace Talk2Me_login
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(RemoveContacttextBox.Text);
+            //MessageBox.Show(RemoveContacttextBox.Text);
             ConnSQL connSQL = new ConnSQL();
 
             this.currentUser.GroupsFriends = this.currentUser.GroupsFriends.Replace(RemoveContacttextBox.Text, "");
-            MessageBox.Show(this.currentUser.GroupsFriends);
+            //MessageBox.Show(this.currentUser.GroupsFriends);
             connSQL.updateGF(currentUser.Username, currentUser.GroupsFriends);
             parrentCW.updateContactListBox();
 
