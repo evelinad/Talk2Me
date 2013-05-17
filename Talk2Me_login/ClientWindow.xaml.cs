@@ -115,6 +115,61 @@ namespace Talk2Me_login
             vacc.Show();
         }
 
+        public void updateContactListBox()
+        {
+            listBox1.Items.Clear();
+            string str = user.GroupsFriends;
+            string delimit = ",";
+            string[] groups = null;
+            Label newlabel;
+            groups = str.Split(delimit.ToCharArray());
+            for (int i = 0; i < groups.Length; i++)
+            {
+                string group = groups[i];
+                delimit = "[] ";
+                string[] friends = group.Split(delimit.ToCharArray());
+                newlabel = new Label();
+                newlabel.Height = 40;
+                newlabel.HorizontalAlignment = HorizontalAlignment.Center;
+                newlabel.Width = 234;
+                newlabel.FontSize = 14;
+                newlabel.Foreground = new SolidColorBrush(Colors.Blue);
+                GroupsFriends newgf = new GroupsFriends();
+
+                newlabel.FontWeight = FontWeights.ExtraBold;
+                newlabel.Content = friends[0];
+                newgf.group = friends[0];
+                listBox1.Items.Add(newlabel);
+                for (int k = 1; k < friends.Length; k++)
+                    if (friends[k].CompareTo(" ") != 0 && friends[k].CompareTo("") != 0)
+                    {
+
+                        newlabel = new Label();
+                        newlabel.ContextMenu = new ContextMenu();
+                        MenuItem mi = new MenuItem();
+                        mi.Header = "Remove user";
+                        mi.Click += new RoutedEventHandler(MiRemoveUser_Click);
+                        newlabel.ContextMenu.Items.Add(mi);
+                        mi = new MenuItem();
+                        mi.Header = "View profile";
+                        mi.Click += new RoutedEventHandler(MiViewProfile_Click);
+                        newlabel.ContextMenu.Items.Add(mi);
+                        newlabel.Height = 40;
+                        newlabel.HorizontalAlignment = HorizontalAlignment.Center;
+                        newlabel.Width = 234;
+
+                        newlabel.Content = friends[k];
+                        newlabel.MouseLeftButtonUp += new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
+                        newlabel.MouseEnter += new MouseEventHandler(newlabel_MouseEnter);
+                        // new MouseButtonEventHandler(label1_MouseRightButtonDown);
+
+                        newgf.friends.Add(friends[k]);
+                        listBox1.Items.Add(newlabel);
+                    }
+                list_gf.Add(newgf);
+
+            }
+        }
         void MiRemoveUser_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(this.selectedlabel.Content.ToString());
@@ -123,58 +178,7 @@ namespace Talk2Me_login
             this.user.GroupsFriends=this.user.GroupsFriends.Replace(this.selectedlabel.Content.ToString(), "");
             MessageBox.Show(this.user.GroupsFriends);
             connSQL.updateGF(user.Username, user.GroupsFriends);
-                listBox1.Items.Clear();
-                string str = user.GroupsFriends;
-                string delimit = ",";
-                string[] groups = null;
-                Label newlabel;
-                groups = str.Split(delimit.ToCharArray());
-                for (int i = 0; i < groups.Length; i++)
-                {
-                    string group = groups[i];
-                    delimit = "[] ";
-                    string[] friends = group.Split(delimit.ToCharArray());
-                    newlabel = new Label();
-                    newlabel.Height = 40;
-                    newlabel.HorizontalAlignment = HorizontalAlignment.Center;
-                    newlabel.Width = 234;
-                    newlabel.FontSize = 14;
-                    newlabel.Foreground = new SolidColorBrush(Colors.Blue);
-                    GroupsFriends newgf = new GroupsFriends();
-
-                    newlabel.FontWeight = FontWeights.ExtraBold;
-                    newlabel.Content = friends[0];
-                    newgf.group = friends[0];
-                    listBox1.Items.Add(newlabel);
-                    for (int k = 1; k < friends.Length; k++)
-                        if (friends[k].CompareTo(" ") != 0 && friends[k].CompareTo("") != 0)
-                        {
-
-                            newlabel = new Label();
-                            newlabel.ContextMenu = new ContextMenu();
-                            MenuItem mi = new MenuItem();
-                            mi.Header = "Remove user";
-                            mi.Click += new RoutedEventHandler(MiRemoveUser_Click);
-                            newlabel.ContextMenu.Items.Add(mi);
-                            mi = new MenuItem();
-                            mi.Header = "View profile";
-                            mi.Click += new RoutedEventHandler(MiViewProfile_Click);
-                            newlabel.ContextMenu.Items.Add(mi);
-                            newlabel.Height = 40;
-                            newlabel.HorizontalAlignment = HorizontalAlignment.Center;
-                            newlabel.Width = 234;
-
-                            newlabel.Content = friends[k];
-                            newlabel.MouseLeftButtonUp += new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
-                            newlabel.MouseEnter += new MouseEventHandler(newlabel_MouseEnter);
-                            // new MouseButtonEventHandler(label1_MouseRightButtonDown);
-
-                            newgf.friends.Add(friends[k]);
-                            listBox1.Items.Add(newlabel);
-                        }
-                    list_gf.Add(newgf);
-
-                }
+            updateContactListBox();
 
         }
 
@@ -340,6 +344,7 @@ namespace Talk2Me_login
         {
             Manage_Contacts mc = new Manage_Contacts();
             mc.setUser(this.user);
+            mc.setParrentWindow(this);
             mc.SelectGroupComboBox.Text = "Select group";
             mc.Show();
         }

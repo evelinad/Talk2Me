@@ -63,7 +63,7 @@ namespace Talk2Me_login
              currentUser.LastName=this.LNameTextBox.Text ;
              currentUser.Email=this.EmailTextBox.Text ;
             currentUser.Birtplace=this.BirthplaceTextBox.Text  ;
-            currentUser.Gender=this.comboBox1.Text ;
+            currentUser.Gender = (comboBox1.SelectedItem as ComboBoxItem).Content.ToString();
             currentUser.Nationality=this.NationalityTextBox1.Text ;
             currentUser.Country=this.CountryTextBox.Text  ;
             currentUser.CurrentCity=this.CurrentCityTextBox.Text  ;
