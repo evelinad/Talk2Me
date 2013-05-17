@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         Title="Chat" Height="460" Width="651" MinHeight="460"   >
     <Grid>
-        <RichTextBox Height="284" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" IsEnabled="False" Margin="12,52,0,0" Name="richTextBox1" VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" Width="456" />
+        <RichTextBox Height="284" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" IsEnabled="True" Margin="12,52,0,0" Name="richTextBox1" VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" Width="456" IsReadOnly="True" />
         <TextBox Height="46" HorizontalAlignment="Left" Margin="12,353,0,0" Name="ChattextBox" SpellCheck.IsEnabled="True" VerticalAlignment="Top" Width="456" />
         <Rectangle Height="121" HorizontalAlignment="Left" Margin="485,51,0,0" Name="rectangle1" RadiusX="10" RadiusY="10" Stroke="Black" VerticalAlignment="Top" Width="123">
             <Rectangle.Fill>

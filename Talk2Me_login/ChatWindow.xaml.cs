@@ -148,7 +148,7 @@ namespace Talk2Me_login
             paragraph.LineHeight = 1;
 
             Run name = new Run();
-            name.Text = "Evelina" + " : ";
+            name.Text = currentUser.FirstName+ " "+ currentUser.LastName  + " : ";
             
             name.Foreground = new SolidColorBrush(Colors.Red);
             paragraph.Inlines.Add(new Bold(name));
