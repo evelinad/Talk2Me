@@ -4,13 +4,13 @@
         Title="Chat" Height="460" Width="651" MinHeight="460"   >
     <Grid>
         <RichTextBox Height="284" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Visible" IsEnabled="False" Margin="12,52,0,0" Name="richTextBox1" VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" Width="456" />
-        <TextBox Height="46" HorizontalAlignment="Left" Margin="12,353,0,0" Name="textBox1" SpellCheck.IsEnabled="True" VerticalAlignment="Top" Width="456" />
+        <TextBox Height="46" HorizontalAlignment="Left" Margin="12,353,0,0" Name="ChattextBox" SpellCheck.IsEnabled="True" VerticalAlignment="Top" Width="456" />
         <Rectangle Height="121" HorizontalAlignment="Left" Margin="485,51,0,0" Name="rectangle1" RadiusX="10" RadiusY="10" Stroke="Black" VerticalAlignment="Top" Width="123">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Talk2Me_beta;component/Images/Chrysanthemum.jpg" Stretch="Fill" TileMode="None" />
             </Rectangle.Fill>
         </Rectangle>
-        <Button Content="Button" Height="46" HorizontalAlignment="Left" Margin="485,0,0,22" Name="button1" VerticalAlignment="Bottom" Width="127" Click="button1_Click" />
+        <Button Content="Send" Height="46" HorizontalAlignment="Left" Margin="485,0,0,22" Name="button1" VerticalAlignment="Bottom" Width="127" Click="button1_Click" />
         <Ellipse Fill="#FF40C740" Height="16" HorizontalAlignment="Left" Margin="15,26,0,0" Name="ellipse1" Stroke="Black" VerticalAlignment="Top" Width="19" />
         <Label Height="28" HorizontalAlignment="Left" Margin="40,20,0,0" Name="label1" VerticalAlignment="Top" Width="428" />
     </Grid>

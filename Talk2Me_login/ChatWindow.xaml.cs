@@ -28,8 +28,12 @@ namespace Talk2Me_login
         public ChatWindow()
         {
             InitializeComponent();
-            _mappings.Add(@"s-]", "/sad.gif");
-            _mappings.Add(@":-|", "/smile.gif");
+            _mappings.Add(@":(", "/sad.gif");
+            _mappings.Add(@":)", "/smile.gif");
+            _mappings.Add(@":D", "/grin.gif");
+            _mappings.Add(@":P", "/toungue.gif");
+            _mappings.Add(@";)", "/wink.gif");
+            _mappings.Add(@":|", "/straight.gif");
     
         }
         public void setConversationPartnerUser(Users user)
@@ -105,7 +109,7 @@ namespace Talk2Me_login
                             Source =
                                 new BitmapImage(new System.Uri(Environment.CurrentDirectory + path,
                                                         UriKind.RelativeOrAbsolute)),
-                            Width = Height = 25,
+                            Width = Height = 20,
                         };
 
                         //insert smile
@@ -144,12 +148,18 @@ namespace Talk2Me_login
             paragraph.LineHeight = 1;
 
             Run name = new Run();
-            name.Text = "Evelina" + " : " + ":-| ana are mere :-|\n";
-
+            name.Text = "Evelina" + " : ";
+            
             name.Foreground = new SolidColorBrush(Colors.Red);
             paragraph.Inlines.Add(new Bold(name));
-            //paragraph.Inlines.Add(new Run(name.text));
-            richTextBox1.Document.Blocks.Add(paragraph);
+            
+       //    paragraph.Inlines.Add(new Run(name.text));
+           richTextBox1.Document.Blocks.Add(paragraph);
+           name = new Run();
+           name.Text =  ChattextBox.Text + "";
+           paragraph = new Paragraph();
+           paragraph.LineHeight = 1;
+
             Emoticons(name.Text, paragraph);
             richTextBox1.ScrollToEnd();
             this.Focus();
@@ -166,9 +176,10 @@ namespace Talk2Me_login
         private void button1_Click(object sender, RoutedEventArgs e)
         {
      //      MessageBox.Show(conversationPartnerUser.FirstName);
-            richTextBox1.AppendText(textBox1.Text + "\r\n");
-            textBox1.Clear();
+            //richTextBox1.AppendText(textBox1.Text + "\r\n");
+            
             SendMessage();
+            ChattextBox.Clear();
          
         }
       
