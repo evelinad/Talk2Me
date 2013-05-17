@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ClientWindow" Height="521" Width="346">
     <Grid Width="334">
-        <ComboBox Height="23" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="165,51,0,0" Name="comboBox1" VerticalAlignment="Top" Width="127"  AllowDrop="True">
+        <ComboBox Height="23" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="165,51,0,0" Name="comboBox1" VerticalAlignment="Top" Width="127"  AllowDrop="True" SelectionChanged="comboBox1_SelectionChanged">
             <ComboBoxItem Content="Available" />
             <ComboBoxItem Content="Offline" />
             <ComboBoxItem Content="Invisible" />
@@ -11,23 +11,25 @@
         <Menu Height="23" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="331">
             <MenuItem Header="Messenger">
                 <MenuItem Header="Edit my contact details" Click="MenuItemEditContactDetails_Click" />
+                <Separator/>
                 <MenuItem Header="Sign out" Click="MenuItemSignOut_Click" />
                 <MenuItem Header="Close" Click="MenuItemClose_Click" />
             </MenuItem>
             <MenuItem Header="Contacts">
-                <MenuItem Header="Add contact" />
+                
+                <MenuItem Header="Manage Contacts and Groups"  Click="MenuItemManageContacts_Click"/>
                 <MenuItem Header="Conversation History" />
             </MenuItem>
-            <MenuItem Header="Help">
-                <MenuItem Header="Talk2Me Help" />
-                <MenuItem Header="About Talk2Me" />
+            <MenuItem Header="Help" >
+                <MenuItem Header="Talk2Me Help" Click="MenuItemHelp_Click" />
+                <MenuItem Header="About Talk2Me" Click="MenuItemAbout_Click"  />
             </MenuItem>
         </Menu>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,80,0,0" Name="textBlock1" Text="Type some contact  information:" VerticalAlignment="Top" Width="254" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,22,0,0" Name="hellouser" Text="Hi," VerticalAlignment="Top" Width="112" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="38,51,0,0" Name="status" Text="Choose your status:" VerticalAlignment="Top" Width="112" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="38,109,0,0" Name="textBox1" VerticalAlignment="Top" Width="254" TextChanged="textBox1_TextChanged" />
-        <ListBox Height="302" HorizontalAlignment="Left" Margin="38,138,0,0" Name="listBox1" VerticalAlignment="Top" Width="254">
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="34,109,0,0" Name="textBox1" VerticalAlignment="Top" Width="264" TextChanged="textBox1_TextChanged" />
+        <ListBox Height="302" HorizontalAlignment="Left" Margin="34,138,0,0" Name="listBox1" VerticalAlignment="Top" Width="266">
 
             <ListBox.Items>
 
@@ -35,6 +37,13 @@
                
             </ListBox.Items>
         </ListBox>
-        
+        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="130,159,0,0" Name="label1" VerticalAlignment="Top" MouseRightButtonDown="label1_MouseRightButtonDown">
+            <Label.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Rmove User" />
+                    <MenuItem Header="View Profile" />
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
     </Grid>
 </Window>

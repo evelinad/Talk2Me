@@ -52,7 +52,7 @@ namespace Talk2Me_login
                 else
                 {
                     Users user = new Users();
-                    user.ID = connSQL.selectAll() + 1;
+                    
                     user.Address = AddressTextBox.Text;
                     user.Birthdate = (BirtdateDatePicker.SelectedDate.HasValue) ? BirtdateDatePicker.SelectedDate.Value.ToShortDateString() : "";
                     user.Birtplace = BirthplaceTextBox.Text;
@@ -72,9 +72,9 @@ namespace Talk2Me_login
                     user.Telephone = TelephoneTextBox.Text;
                     user.Username = UsernametextBox.Text;
                     user.Workplace = WorkplaceTextBox.Text;
-                    user.GroupsFriends = "default[]";
+                    user.GroupsFriends = "buddies["+user.Username+"]";
                     connSQL.insert(user);
-                    GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", user.Email, "Error", "Hello "+ user.LastName+",\n"+"\tWelcome to Talk2Me !");
+                    GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", user.Email, "Talk2Me instant messenger", "Hello "+ user.LastName+",\n"+"\tWelcome to Talk2Me !");
 
                 }
         }

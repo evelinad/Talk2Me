@@ -11,7 +11,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Button Content="Button" Height="46" HorizontalAlignment="Left" Margin="485,0,0,22" Name="button1" VerticalAlignment="Bottom" Width="127" Click="button1_Click" />
-        <Ellipse Fill="#FF40C740" Height="16" HorizontalAlignment="Left" Margin="14,24,0,0" Name="ellipse1" Stroke="Black" VerticalAlignment="Top" Width="20" />
+        <Ellipse Fill="#FF40C740" Height="16" HorizontalAlignment="Left" Margin="15,26,0,0" Name="ellipse1" Stroke="Black" VerticalAlignment="Top" Width="19" />
         <Label Height="28" HorizontalAlignment="Left" Margin="40,20,0,0" Name="label1" VerticalAlignment="Top" Width="428" />
     </Grid>
 </Window>

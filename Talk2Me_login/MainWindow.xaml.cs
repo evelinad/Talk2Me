@@ -101,7 +101,7 @@ namespace Talk2Me_login
             user = connSQL.getUser(UsernameTextbox.Text, PasswordTextBox.Text);
             if (user!=null)
             {
-                MessageBox.Show("Autehtication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Authentication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 ClientServerCommunicator.InitConection();
                 Login mess = new Login();
                 mess.Username = UsernameTextbox.Text;
@@ -135,8 +135,11 @@ namespace Talk2Me_login
                     
                     ClientWindow clientwin = new ClientWindow();
                     clientwin.setUser( user);
+                    clientwin.comboBox1.Text = user.Status;
                     this.Hide();
+                    clientwin.parrentwdw = this;
                     clientwin.Show();
+
                 }
                 catch (Exception exc)
                 {

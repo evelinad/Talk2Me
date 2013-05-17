@@ -39,37 +39,33 @@ namespace Talk2Me_login
         System.Configuration.ConfigurationFileMap fileMap ;
         System.Configuration.Configuration config ;
         SqlConnectionStringBuilder SqlConnStrBuilder ;
-           
-        public void getData()
+
+        public void deleteUser(string username)
         {
+
             try
             {
-                // connect to SQL database
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = ConnectionString;
-                conn.Open();    
-
-                // execute sql and get results
-                SqlDataAdapter sqlAdapt = new SqlDataAdapter(@"" + sqlString, conn);
-                DataSet sqlSet = new DataSet();
-                sqlAdapt.Fill(sqlSet);
-                
-                // close SQL connection
+                SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString());
+                SqlCommand command = conn.CreateCommand() ;
+                    
+                conn.Open();
+                string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON delete from talk2me.dbo.Users  where username ='"+username+"' SET IDENTITY_INSERT talk2me.dbo.Users OFF"; 
+                command.CommandText = cmd;
+                command.ExecuteNonQuery();
                 conn.Close();
+                    
 
-                // correct execution
-                execDone = true;
-                execCorrect = true;
+                
             }
             catch (Exception exc)
             {
-                // exception generates an error
-                errorMsg=exc.ToString();
-                execDone = true;
-                execCorrect = false;
+                //MessageBox.Show("An error has occured:\n" + exc.ToString());
+                GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
             }
 
+        
         }
+
         public Users getUser(string username, string password)
         {
             Users user=new Users();
@@ -272,42 +268,32 @@ namespace Talk2Me_login
             }
 
         }
-    
-    
-        public int selectAll()
+
+        public void updateGF(string username, string groups_friends)
         {
-           
-            int nr=0;
             try
             {
                 SqlConnection conn = new SqlConnection(SqlConnStrBuilder.ToString());
-                
-                    SqlCommand command = conn.CreateCommand();
-                    
-                        conn.Open();
-                        string cmd = "SET IDENTITY_INSERT talk2me.dbo.Users ON;select * from talk2me.dbo.Users;SET IDENTITY_INSERT talk2me.dbo.Users OFF";
-                        command.CommandText = cmd;
-                        SqlDataReader reader = command.ExecuteReader();
-                        
-                            while (reader.Read())
-                            {
-                                nr++;
-                            }
-                        
-                        conn.Close();
-                    
+                SqlCommand command = conn.CreateCommand();
 
-                
+                conn.Open();
+                string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON update talk2me.dbo.Users set groups_friends = '" + groups_friends + "'where username = '" + username + "' SET IDENTITY_INSERT talk2me.dbo.Users OFF";
+                command.CommandText = cmd;
+                command.ExecuteNonQuery();
+                conn.Close();
+
+
+
             }
             catch (Exception exc)
             {
                 //MessageBox.Show("An error has occured:\n" + exc.ToString());
                 GmailSender.SendMail("dumitrescu.evelina@gmail.com", "Andreia_90", "dumitrescu.evelina@gmail.com", "Error", exc.ToString());
             }
-            return nr;
 
         }
-
+    
+    
         public void insert(Users user)
         {
 
@@ -319,7 +305,7 @@ namespace Talk2Me_login
                 SqlCommand command = conn.CreateCommand();
                 
                         conn.Open();
-                        string cmd = "set ansi_warnings off SET IDENTITY_INSERT talk2me.dbo.Users ON insert into talk2me.dbo.Users (ID, username, password, gender, birthdate, birthplace, telephone, personal_interest, education, workplace, current_city, country, address, nationality, languages,  groups_friends,secret_question,secret_answer,email,status,first_name,last_name)values('" + user.ID + "','" + user.Username + "','" + user.Password + "','" + user.Gender + "','" + user.Birthdate + "','" + user.Birtplace + "','" + user.Telephone + "','" + user.PersonalInterest + "','" + user.Education + "','" + user.Workplace + "','" + user.CurrentCity + "','" + user.Country + "','" + user.Address + "','" + user.Nationality + "','" + user.Languages + "','" + user.GroupsFriends + "','" + user.SecretQuestion + "','" + user.SecretAnswer + "','" + user.Email + "','" + user.Status + "','" + user.FirstName + "','" + user.LastName + "')";
+                        string cmd = "set ansi_warnings off insert into talk2me.dbo.Users ( username, password, gender, birthdate, birthplace, telephone, personal_interest, education, workplace, current_city, country, address, nationality, languages,  groups_friends,secret_question,secret_answer,email,status,first_name,last_name)values('" +  user.Username + "','" + user.Password + "','" + user.Gender + "','" + user.Birthdate + "','" + user.Birtplace + "','" + user.Telephone + "','" + user.PersonalInterest + "','" + user.Education + "','" + user.Workplace + "','" + user.CurrentCity + "','" + user.Country + "','" + user.Address + "','" + user.Nationality + "','" + user.Languages + "','" + user.GroupsFriends + "','" + user.SecretQuestion + "','" + user.SecretAnswer + "','" + user.Email + "','" + user.Status + "','" + user.FirstName + "','" + user.LastName + "')";
                         command.CommandText = cmd;
                         command.ExecuteNonQuery();
                         conn.Close();

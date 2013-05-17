@@ -19,10 +19,10 @@ namespace Talk2Me_login
     /// 
     public partial class ChatWindow : Window
     {
-        
-        
-        public Users conversationPartnerUser { get; set; }
-        public Users currentUser { get;set; }
+
+
+        public Users conversationPartnerUser;
+        public Users currentUser { get; set; }
         private Dictionary<string, string> _mappings = new Dictionary<string, string>();
         
         public ChatWindow()
@@ -31,6 +31,12 @@ namespace Talk2Me_login
             _mappings.Add(@"s-]", "/sad.gif");
             _mappings.Add(@":-|", "/smile.gif");
     
+        }
+        public void setConversationPartnerUser(Users user)
+        {
+            this.conversationPartnerUser = user;
+            if (this.conversationPartnerUser.Status.CompareTo("Available") == 0) ellipse1.Fill = new SolidColorBrush(Colors.Green);
+            else ellipse1.Fill = new SolidColorBrush(Colors.LightSlateGray);
         }
 
         private string GetEmoticonText(string text)

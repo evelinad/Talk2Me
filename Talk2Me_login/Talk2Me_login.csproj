@@ -103,6 +103,9 @@
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
+    <Compile Include="ManageContacts.xaml.cs">
+      <DependentUpon>ManageContacts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mesaj.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="NewAccount.xaml.cs">
@@ -116,6 +119,9 @@
       <DependentUpon>UpdateAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs" />
+    <Compile Include="ViewAccount.xaml.cs">
+      <DependentUpon>ViewAccount.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +147,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManageContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
