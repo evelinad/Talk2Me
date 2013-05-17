@@ -22,7 +22,7 @@ namespace Server
             // larger buffer. But this small buffer size nicely
             // demonstrates getting the entire message in multiple
             // pieces.
-            public const int bufferSize = 8; 
+            public const int bufferSize = 8;
             public byte[] buffer = new byte[bufferSize];
             public int expectedMessageLength = 0;
             public int receivedMessageLength = 0;
@@ -33,7 +33,7 @@ namespace Server
         static ManualResetEvent acceptDone = new ManualResetEvent(false);
         const int listenPort = 2500;
 
-        static Dictionary<string, Socket> map = new Dictionary<string,Socket>();
+        static Dictionary<string, Socket> map = new Dictionary<string, Socket>();
 
         public static void Main(string[] args)
         {
@@ -61,7 +61,7 @@ namespace Server
             {
                 Console.WriteLine(e.Message);
             }
-        }        
+        }
 
         public static void AcceptCallback(IAsyncResult ar)
         {
@@ -79,7 +79,7 @@ namespace Server
                     SocketFlags.None, new AsyncCallback(ReadCallback), state);
 
                 // Start sending the data
-                SendData(handler , "Tralala");
+                SendData(handler, "Tralala");
             }
             catch (Exception e)
             {
@@ -99,18 +99,18 @@ namespace Server
                 if (read > 0)
                 {
                     Console.Out.WriteLine("Read {0} bytes", read);
-                    
+
                     if (state.expectedMessageLength == 0)
                     {
                         // Extract how much data to expect from the first 4 bytes
                         // then configure buffer sizes and copy the already received
                         // part of the message.
                         state.expectedMessageLength = BitConverter.ToInt32(state.buffer, 0);
-                        
+
                         state.message = new byte[state.expectedMessageLength];
-                        Array.ConstrainedCopy(state.buffer, 4, state.message, 0, 
+                        Array.ConstrainedCopy(state.buffer, 4, state.message, 0,
                             Math.Min(StateObject.bufferSize - 4, state.expectedMessageLength - state.receivedMessageLength));
-                        
+
                         state.receivedMessageLength += read - 4;
                     }
                     else
@@ -118,7 +118,7 @@ namespace Server
                         Array.ConstrainedCopy(state.buffer, 0, state.message, state.receivedMessageLength,
                             Math.Min(StateObject.bufferSize, state.expectedMessageLength - state.receivedMessageLength));
                         state.receivedMessageLength += read;
-                    }                                       
+                    }
 
                     // Check if we received the entire message. If not
                     // continue listening, else close the connection
@@ -131,19 +131,27 @@ namespace Server
                     else
                     {
                         int type;
-                        handler.Shutdown(SocketShutdown.Both);
-                        handler.Close();
-                        byte []buffer = new byte[ state.message.Length - 4];
+                        //handler.Shutdown(SocketShutdown.Both);
+                        //handler.Close();
+                        byte[] buffer = new byte[state.message.Length - 4];
                         Array.ConstrainedCopy(state.message, 4, buffer, 0, state.message.Length - 4);
 
                         type = BitConverter.ToInt32(state.message, 0);
 
                         Console.Out.WriteLine("Received message: \n");
-                        Login t = Login.Desserialize(buffer);
-                        
-                        
+
+
+
                         IdentifyMessage(buffer, type, handler);
-                        
+
+                        Console.WriteLine("");
+
+                        StateObject new_state = new StateObject();
+                        new_state.connection = handler;
+
+                        handler.BeginReceive(new_state.buffer, 0, StateObject.bufferSize,
+                            SocketFlags.None, new AsyncCallback(ReadCallback), new_state);
+
                     }
                 }
             }
@@ -154,28 +162,28 @@ namespace Server
         }
 
 
-       public static void IdentifyMessage(byte[] buffer, int type, Socket handler)
-       {
-           switch(type)
-           {
-               case 1:
-                   message( Authentication.Desserialize(buffer),handler );
-                   break;
-               case 2:
-                   message(FriendOp.Desserialize(buffer), handler);
-                   break;
-               case 3:
-                   Login mess = Login.Desserialize(buffer);
-                   message(mess, handler);
-                   break;
-               case 4:
-                   message(Message.Desserialize(buffer), handler);
-                   break;
-               case 5:
-                   message(StateStatus.Desserialize(buffer), handler);
-                   break;
-           }
-       }
+        public static void IdentifyMessage(byte[] buffer, int type, Socket handler)
+        {
+            switch (type)
+            {
+                case 1:
+                    message(Authentication.Desserialize(buffer), handler);
+                    break;
+                case 2:
+                    message(FriendOp.Desserialize(buffer), handler);
+                    break;
+                case 3:
+                    Login mess = Login.Desserialize(buffer);
+                    message(mess, handler);
+                    break;
+                case 4:
+                    message(Message.Desserialize(buffer), handler);
+                    break;
+                case 5:
+                    message(StateStatus.Desserialize(buffer), handler);
+                    break;
+            }
+        }
 
 
         public static void message(Authentication mess, Socket handler)
@@ -205,14 +213,15 @@ namespace Server
             // TODO TRIMITERE MESAJ
         }
 
-        public  static void message(Message mess, Socket handler)
+        public static void message(Message mess, Socket handler)
         {
+            Console.Write("GOT HERE BITCHES");
             Socket destination;
-             if (map.TryGetValue(mess.SourceName, out destination))
+            if (map.TryGetValue(mess.SourceName, out destination))
             {
 
             }
-           
+
 
         }
 
@@ -222,7 +231,7 @@ namespace Server
 
 
         }
-        
+
         static void SendData(Socket connection, string message)
         {
             try
