@@ -24,10 +24,16 @@ namespace Talk2Me_login
         {
             InitializeComponent();
         }
+        public void setUser(Users user)
+        {
+            this.currentUser = user;
+        }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            ConnSQL connSQL = new ConnSQL();
+            this.currentUser.GroupsFriends += "," + AddGrouptextBox.Text + "[]";
+            connSQL.updateGF(this.currentUser.Username, this.currentUser.GroupsFriends);
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

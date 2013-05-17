@@ -339,7 +339,8 @@ namespace Talk2Me_login
         private void MenuItemManageContacts_Click(object sender, RoutedEventArgs e)
         {
             Manage_Contacts mc = new Manage_Contacts();
-            mc.currentUser = this.user;
+            mc.setUser(this.user);
+            mc.SelectGroupComboBox.Text = "Select group";
             mc.Show();
         }
     }
