@@ -157,6 +157,7 @@ namespace Talk2Me_login
             Message mess = new Message();
             mess.SourceName = currentUser.Username;
             mess.DestinationName = conversationPartnerUser.Username;
+            mess.Data = "Sunt prea frumos!";
             byte[] buff = mess.Serialize();
             ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 4);
 
