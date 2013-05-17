@@ -13,6 +13,7 @@ namespace Server
         public int Id { get; set; }
         public string SourceName { get; set; }
         public string DestinationName { get; set; }
+        public string Data { get; set; }
 
         public byte[] Serialize()
         {
@@ -23,6 +24,7 @@ namespace Server
                     writer.Write(Id);
                     writer.Write(SourceName);
                     writer.Write(DestinationName);
+                    writer.Write(Data);
                 }
                 return m.ToArray();
             }
@@ -38,6 +40,7 @@ namespace Server
                     result.Id = reader.ReadInt32();
                     result.SourceName = reader.ReadString();
                     result.DestinationName = reader.ReadString();
+                    result.Data = reader.ReadString();
                 }
             }
             return result;

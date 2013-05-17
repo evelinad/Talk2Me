@@ -215,6 +215,7 @@ namespace Server
 
         public static void message(Message mess, Socket handler)
         {
+            Console.Write("GOT HERE BITCHES");
             Socket destination;
             if (map.TryGetValue(mess.SourceName, out destination))
             {

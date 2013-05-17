@@ -154,6 +154,12 @@ namespace Talk2Me_login
             richTextBox1.ScrollToEnd();
             this.Focus();
 
+            Message mess = new Message();
+            mess.SourceName = currentUser.Username;
+            mess.DestinationName = conversationPartnerUser.Username;
+            byte[] buff = mess.Serialize();
+            ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 4);
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
