@@ -22,6 +22,6 @@
         <CheckBox Content="Sign in as invisible to everyone" Height="19" HorizontalAlignment="Left" Margin="80,292,0,0" Name="checkBox3" VerticalAlignment="Top" Width="185" />
         <Button Content="Get new Talk2Me ID ..." Height="28" HorizontalAlignment="Left" Margin="81,0,0,63" Name="button2" VerticalAlignment="Bottom" Width="137" Click="button2_Click" />
         <Button Content="Forgot your password?" Height="28" HorizontalAlignment="Left" Margin="80,426,0,0" Name="button3" VerticalAlignment="Top" Width="137" Click="button3_Click" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="73,189,0,0" Name="PasswordTextBox" VerticalAlignment="Top" Width="192" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="73,190,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="192" />
     </Grid>
 </Window>

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ceva.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/im.gif")]
 
 

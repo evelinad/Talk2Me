@@ -39,13 +39,13 @@ namespace Talk2Me_login
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if (UsernametextBox.Text == "" || PasswordTextBox.Text == "" || ConfirmPasswordTextBox.Text == "" || EmailTextBox.Text == "")
+            if (UsernametextBox.Text == "" || passwordBox1.Password == "" || passwordBox2.Password == "" || EmailTextBox.Text == "")
             {
                 MandatoryLabel.Visibility = MandatoryLabel2.Visibility = MandatoryLabel3.Visibility = MandatoryLabel4.Visibility = Visibility.Visible;
                 MessageBox.Show("Please complete all mandatory fields.", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
             else
-                if (PasswordTextBox.Text != ConfirmPasswordTextBox.Text)
+                if (passwordBox1.Password != passwordBox2.Password)
                 {
                     MessageBox.Show("Password and confirm password box must be the same.", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Stop);
                 }
@@ -64,7 +64,7 @@ namespace Talk2Me_login
                     user.Gender = (comboBox1.SelectedItem as ComboBoxItem).Content.ToString();
                     user.LastName = LNameTextBox.Text;
                     user.Nationality = NationalityTextBox1.Text;
-                    user.Password = PasswordTextBox.Text;
+                    user.Password = passwordBox1.Password;
                     user.PersonalInterest = PersonalInteresetTextBox.Text;
                     user.SecretAnswer = SecretAnswertextBox.Text;
                     user.SecretQuestion = SecretQuestionTextBox.Text;

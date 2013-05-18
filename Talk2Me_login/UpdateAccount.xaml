@@ -15,9 +15,9 @@
                 <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="129,6,0,0" Name="label12" VerticalAlignment="Top" Grid.Column="1" />
                 <TextBox AcceptsReturn="True" Height="23" HorizontalAlignment="Left" Margin="129,39,0,0" Name="EmailTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" />
                 <Label Content="New Password" Height="28" HorizontalAlignment="Left" Margin="0,68,0,0" Name="label3" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                <TextBox AcceptsReturn="True" Height="23" HorizontalAlignment="Left" Margin="0,102,0,0" Name="PasswordTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
                 <Label Content="Confirm New Password" Height="28" HorizontalAlignment="Left" Margin="123,68,0,0" Name="label5" VerticalAlignment="Top" Grid.Column="1" />
-                <TextBox AcceptsReturn="True" Height="23" HorizontalAlignment="Left" Margin="123,102,0,0" Name="ConfirmPasswordTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                <PasswordBox Height="23" HorizontalAlignment="Left" Margin="6,102,0,0" Name="PasswordpasswordBox" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" PasswordChanged="passwordBox1_PasswordChanged" />
+                <PasswordBox Height="23" HorizontalAlignment="Left" Margin="129,102,0,0" Name="ConfirmPasswordPasswordBox" VerticalAlignment="Top" Width="120" Grid.Column="1" />
             </Grid>
         </GroupBox>
         <GroupBox Header="Personal Data" Height="200" HorizontalAlignment="Left" Margin="553,15,0,0" Name="groupBox2" VerticalAlignment="Top" Width="484">

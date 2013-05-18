@@ -182,6 +182,19 @@ namespace Talk2Me_login
             ChattextBox.Clear();
          
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            SendEmailWindow sem = new SendEmailWindow();
+            sem.currenUser = this.currentUser;
+            sem.chatPartnerUser = this.conversationPartnerUser;
+            sem.Show();
+        }
       
     }
 }

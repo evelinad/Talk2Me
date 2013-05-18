@@ -114,6 +114,9 @@
     <Compile Include="Passwordrecovery.xaml.cs">
       <DependentUpon>Passwordrecovery.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SendEmailWindow.xaml.cs">
+      <DependentUpon>SendEmailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StateStatus.cs" />
     <Compile Include="UpdateAccount.xaml.cs">
       <DependentUpon>UpdateAccount.xaml</DependentUpon>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Passwordrecovery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendEmailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +209,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ceva.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\email.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\smiley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\im.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

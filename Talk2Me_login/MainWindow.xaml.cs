@@ -43,19 +43,19 @@ namespace Talk2Me_login
                                 line = file.ReadLine();
                                 if (line != null)
                                 {
-                                    PasswordTextBox.Text = line;
+                                    passwordBox1.Password = line;
                                     checkBox1.IsChecked = true;
                                     line = file.ReadLine();
                                     if (line != null && line.CompareTo("ok") == 0)
                                     {
                                         checkBox2.IsChecked = true;
-                                        user = connSQL.getUser(UsernameTextbox.Text, PasswordTextBox.Text);
+                                        user = connSQL.getUser(UsernameTextbox.Text, passwordBox1.Password);
                                         if (user != null)
                                         {
                                             ClientServerCommunicator.InitConection();
                                             Login mess = new Login();
                                             mess.Username = UsernameTextbox.Text;
-                                            mess.Password = PasswordTextBox.Text;
+                                            mess.Password = passwordBox1.Password;
                                             byte[] buff = mess.Serialize();
                                             ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 3);
 
@@ -98,14 +98,14 @@ namespace Talk2Me_login
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
-            user = connSQL.getUser(UsernameTextbox.Text, PasswordTextBox.Text);
+            user = connSQL.getUser(UsernameTextbox.Text, passwordBox1.Password);
             if (user!=null)
             {
                 MessageBox.Show("Authentication succeded", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 ClientServerCommunicator.InitConection();
                 Login mess = new Login();
                 mess.Username = UsernameTextbox.Text;
-                mess.Password = PasswordTextBox.Text;
+                mess.Password = passwordBox1.Password;
                 byte[] buff = mess.Serialize();
                 ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 3);
 
@@ -113,10 +113,10 @@ namespace Talk2Me_login
                 {
                 try
                 {
-                    string lines = UsernameTextbox.Text + "\n" + PasswordTextBox.Text;
+                    string lines = UsernameTextbox.Text + "\n" + passwordBox1.Password;
                     System.IO.StreamWriter file = new System.IO.StreamWriter("conf.txt");
                     file.WriteLine(UsernameTextbox.Text);
-                    file.WriteLine(PasswordTextBox.Text);
+                    file.WriteLine(passwordBox1.Password);
                     if(checkBox2.IsChecked==true)
                         file.WriteLine("ok"); 
                     file.Close();
@@ -197,7 +197,7 @@ namespace Talk2Me_login
                 checkBox2.IsChecked = false;
                 checkBox2.IsEnabled = false;
                 file.Close();
-                UsernameTextbox.Text = PasswordTextBox.Text = "";
+                UsernameTextbox.Text = passwordBox1.Password = "";
 
             }
             catch (Exception exc)

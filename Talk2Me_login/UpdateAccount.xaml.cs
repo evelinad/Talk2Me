@@ -31,8 +31,8 @@ namespace Talk2Me_login
             
             this.UsernametextBox.Text = currentUser.Username;
             this.EmailTextBox.Text = currentUser.Email;
-            this.PasswordTextBox.Text = currentUser.Password;
-            this.ConfirmPasswordTextBox.Text = currentUser.Password;
+            this.PasswordpasswordBox.Password = currentUser.Password;
+            this.ConfirmPasswordPasswordBox.Password = currentUser.Password;
             this.FNamTextBox.Text = currentUser.FirstName;
             this.LNameTextBox.Text = currentUser.LastName;
             this.EmailTextBox.Text = currentUser.Email;
@@ -57,8 +57,8 @@ namespace Talk2Me_login
         {
             //this.UsernametextBox.Text = currentUser.Username;
             currentUser.Email=this.EmailTextBox.Text  ;
-            currentUser.Password=this.PasswordTextBox.Text ;
-            currentUser.Password=this.ConfirmPasswordTextBox.Text  ;
+            currentUser.Password=this.PasswordpasswordBox.Password ;
+            currentUser.Password=this.ConfirmPasswordPasswordBox.Password  ;
             currentUser.FirstName=this.FNamTextBox.Text ;
              currentUser.LastName=this.LNameTextBox.Text ;
              currentUser.Email=this.EmailTextBox.Text ;
@@ -81,7 +81,7 @@ namespace Talk2Me_login
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if (PasswordTextBox.Text != ConfirmPasswordTextBox.Text)
+            if (PasswordpasswordBox.Password != ConfirmPasswordPasswordBox.Password)
                 MessageBox.Show("Password and confirm password textbox must be the same", "Talk2Me", MessageBoxButton.OK, MessageBoxImage.Stop);
             else
             {
@@ -91,6 +91,11 @@ namespace Talk2Me_login
                 connSQl.insert(currentUser);
                 
             }
+        }
+
+        private void passwordBox1_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

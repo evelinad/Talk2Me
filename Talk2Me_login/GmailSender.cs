@@ -16,6 +16,36 @@ public class GmailSender
 		// TODO: Add constructor logic here
 		//
 	}
+     public static bool SendMail(string gMailAccount, string password, string to, string cc, string bcc, string subject, string message)
+    {
+        try
+        {
+            NetworkCredential loginInfo = new NetworkCredential(gMailAccount, password);
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(gMailAccount);
+            msg.To.Add(new MailAddress(to));
+            msg.Subject = subject;
+            if(bcc.CompareTo("")!=0)
+            msg.Bcc.Add(new MailAddress(bcc));
+            if (cc.CompareTo("") != 0)
+            msg.CC.Add(new MailAddress(cc));
+            msg.Body = message;
+            msg.IsBodyHtml = true;
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.Credentials = loginInfo;
+            client.Send(msg);
+
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+
+    
+}
     public static bool SendMail(string gMailAccount, string password, string to, string subject, string message)
     {
         try

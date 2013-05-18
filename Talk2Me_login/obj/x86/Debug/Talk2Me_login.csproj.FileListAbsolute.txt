@@ -99,3 +99,5 @@ C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ViewAccount.baml
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ViewAccount.g.cs
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ManageContacts.baml
 C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\ManageContacts.g.cs
+C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\SendEmailWindow.baml
+C:\Users\evelina\Talk2Me\Talk2Me_login\obj\x86\Debug\SendEmailWindow.g.cs
