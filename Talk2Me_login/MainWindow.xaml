@@ -16,7 +16,7 @@
         </Menu>
         <TextBox Height="23"   HorizontalAlignment="Left" Margin="73,117,0,0" Name="UsernameTextbox" VerticalAlignment="Top" Width="192" />
         <Label Content="TalkToMe ID" Height="28" HorizontalAlignment="Left" Margin="73,83,0,0" Name="label1" VerticalAlignment="Top" />
-        <Label Content="Password" Height="28" HorizontalAlignment="Right" Margin="0,155,200,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Password" Height="28" HorizontalAlignment="Right" Margin="0,155,191,0" Name="label2" VerticalAlignment="Top" />
         <CheckBox Content="Remember my ID &amp; password" Height="19" HorizontalAlignment="Left" Margin="80,243,0,0" Name="checkBox1" VerticalAlignment="Top" Width="185" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" />
         <CheckBox Content="Sign in automatically" Height="19" HorizontalAlignment="Left" Margin="80,268,0,0" Name="checkBox2" VerticalAlignment="Top" Width="185" />
         <CheckBox Content="Sign in as invisible to everyone" Height="19" HorizontalAlignment="Left" Margin="80,292,0,0" Name="checkBox3" VerticalAlignment="Top" Width="185" />
