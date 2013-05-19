@@ -4,7 +4,7 @@
         Title="ClientWindow" Height="521" Width="346">
     <Grid Width="334">
         <ComboBox Height="23" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="165,51,0,0" Name="comboBox1" VerticalAlignment="Top" Width="127"  AllowDrop="True" SelectionChanged="comboBox1_SelectionChanged">
-            <ComboBoxItem Content="Available" />
+            <ComboBoxItem Content="Available"  />
             <ComboBoxItem Content="Offline" />
             <ComboBoxItem Content="Invisible" />
         </ComboBox>
