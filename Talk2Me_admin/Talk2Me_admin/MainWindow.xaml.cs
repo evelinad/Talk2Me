@@ -22,6 +22,7 @@ namespace Talk2Me_admin
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

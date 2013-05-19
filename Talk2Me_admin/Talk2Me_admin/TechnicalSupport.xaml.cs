@@ -10,6 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.ComponentModel;
 
 namespace Talk2Me_admin
 {
@@ -23,6 +26,11 @@ namespace Talk2Me_admin
         public TechnicalSupport()
         {
             InitializeComponent();
+
+          //  dataGrid1.ItemsSource = new ObservableCollection<Object[]>();
+           // dataGrid1.ItemsSource.
+           
+           
             user_list = new List<string>();
             ConnSQL connSQL = new ConnSQL();
 
@@ -136,6 +144,43 @@ namespace Talk2Me_admin
             }
              
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+            try 
+        {
+ using (StreamReader sr = new StreamReader("default.txt"))
+            {
+                String line;
+ 
+ while ((line = sr.ReadLine()) != null) 
+
+                {
+                    string delimit= ":";
+                    string [] str= line.Split(delimit.ToCharArray());
+      dataGrid1.Items.Add(new MyLogs { Date = str[0], Log = str[1] });
+
+                }
+            }
+        }
+ catch (Exception exc) 
+        {
+            MessageBox.Show(exc.ToString());
+
+        }
+    }
+        
+}
+
+    
+    public class MyLogs
+    {
+        public string Date { set; get; }
+        public string Log { set; get; }
     }
 }

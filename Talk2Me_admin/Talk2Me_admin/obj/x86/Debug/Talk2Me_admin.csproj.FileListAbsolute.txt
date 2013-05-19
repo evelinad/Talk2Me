@@ -47,3 +47,42 @@ C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_admin\Talk2Me_admin\obj\x8
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.pdb
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\TechnicalSupport.baml
 C:\Users\evelina\Documents\Visual Studio 2010\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\TechnicalSupport.g.cs
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.exe
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.pdb
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Talk2Me_admin.exe
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Talk2Me_admin.pdb
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Expression.Effects.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Expression.Effects.xml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\MainWindow.baml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\TechnicalSupport.baml
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\MainWindow.g.cs
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\TechnicalSupport.g.cs
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\App.g.cs
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin_MarkupCompile.cache
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.g.resources
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.Properties.Resources.resources
+C:\Users\evelina\Talk2Me\Talk2Me_admin\Talk2Me_admin\obj\x86\Debug\Talk2Me_admin.csproj.GenerateResource.Cache
