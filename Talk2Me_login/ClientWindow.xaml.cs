@@ -23,12 +23,14 @@ namespace Talk2Me_login
     {
         public Users user;
         Label selectedlabel;
+        bool firsttime;
         public List<GroupsFriends> list_gf;
         public MainWindow parrentwdw { get; set;}
         bool signout;
         public ClientWindow()
         {
             signout = false;
+            firsttime = true;
             list_gf = new List<GroupsFriends>();
             InitializeComponent();
          
@@ -81,7 +83,7 @@ namespace Talk2Me_login
                         newlabel.Height = 40;
                         newlabel.HorizontalAlignment = HorizontalAlignment.Center;
                         newlabel.Width = 234;
-                        
+                        newlabel.ToolTip = "Dorm!";
                         newlabel.Content = friends[k];
                         newlabel.MouseLeftButtonUp+= new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
                         newlabel.MouseEnter += new MouseEventHandler(newlabel_MouseEnter);
@@ -157,7 +159,7 @@ namespace Talk2Me_login
                         newlabel.Height = 40;
                         newlabel.HorizontalAlignment = HorizontalAlignment.Center;
                         newlabel.Width = 234;
-
+                        newlabel.ToolTip = "Dorm!";
                         newlabel.Content = friends[k];
                         newlabel.MouseLeftButtonUp += new MouseButtonEventHandler(Label_MouseLeftButtonUp_1);
                         newlabel.MouseEnter += new MouseEventHandler(newlabel_MouseEnter);
@@ -218,7 +220,7 @@ namespace Talk2Me_login
                             mi.Header = "View profile";
                             mi.Click += new RoutedEventHandler(MiViewProfile_Click);
                             newlabel.ContextMenu.Items.Add(mi);
-                   
+                            newlabel.ToolTip = "Dorm!";
                             
                             newlabel.Height = 40;
                             newlabel.HorizontalAlignment = HorizontalAlignment.Center;
@@ -391,6 +393,45 @@ namespace Talk2Me_login
             mc.setParrentWindow(this);
             mc.SelectGroupComboBox.Text = "Select group";
             mc.Show();
+        }
+
+        private void WhatAreYouDoingTextBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (firsttime == true)
+            {
+                WhatAreYouDoingTextBox.Text = "";
+                WhatAreYouDoingTextBox.FontStyle = FontStyles.Normal;
+                WhatAreYouDoingTextBox.Foreground = new SolidColorBrush(Colors.Black);
+                firsttime = false;
+            }
+           
+        }
+
+        private void WhatAreYouDoingTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void WhatAreYouDoingTextBox_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void WhatAreYouDoingTextBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+        private void WhatAreYouDoingTextBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (WhatAreYouDoingTextBox.Text.Equals(""))
+            {
+                WhatAreYouDoingTextBox.Text = "What are you doing?";
+                WhatAreYouDoingTextBox.FontStyle = FontStyles.Oblique;
+                WhatAreYouDoingTextBox.Foreground = new SolidColorBrush(Colors.Gray);
+                firsttime = true;
+
+            }
         }
     }
     public class GroupsFriends
