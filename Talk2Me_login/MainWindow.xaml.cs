@@ -197,6 +197,7 @@ namespace Talk2Me_login
                 checkBox2.IsChecked = false;
                 checkBox2.IsEnabled = false;
                 file.Close();
+                this.Hide();
                 UsernameTextbox.Text = passwordBox1.Password = "";
 
             }

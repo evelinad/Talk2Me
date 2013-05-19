@@ -37,13 +37,5 @@
                
             </ListBox.Items>
         </ListBox>
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="130,159,0,0" Name="label1" VerticalAlignment="Top" MouseRightButtonDown="label1_MouseRightButtonDown">
-            <Label.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Rmove User" />
-                    <MenuItem Header="View Profile" />
-                </ContextMenu>
-            </Label.ContextMenu>
-        </Label>
     </Grid>
 </Window>

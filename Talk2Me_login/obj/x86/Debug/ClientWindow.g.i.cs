@@ -95,14 +95,6 @@ namespace Talk2Me_login {
         #line default
         #line hidden
         
-        
-        #line 40 "..\..\..\ClientWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Label label1;
-        
-        #line default
-        #line hidden
-        
         private bool _contentLoaded;
         
         /// <summary>
@@ -213,15 +205,6 @@ namespace Talk2Me_login {
             return;
             case 13:
             this.listBox1 = ((System.Windows.Controls.ListBox)(target));
-            return;
-            case 14:
-            this.label1 = ((System.Windows.Controls.Label)(target));
-            
-            #line 40 "..\..\..\ClientWindow.xaml"
-            this.label1.MouseRightButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.label1_MouseRightButtonDown);
-            
-            #line default
-            #line hidden
             return;
             }
             this._contentLoaded = true;

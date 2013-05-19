@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Talk2Me_login.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="521" Width="346">
+        Title="Talk2Me  Login" Height="521" Width="346">
     <Grid>
         <Button Content="Sign In" Height="28" HorizontalAlignment="Left" Margin="80,357,0,0" Name="button1" VerticalAlignment="Top" Width="138" Click="button1_Click" />
         <Menu Height="23" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="374">
