@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
-
+using System.Diagnostics;
 namespace Talk2Me_login
 {
     /// <summary>
@@ -237,10 +237,7 @@ namespace Talk2Me_login
 
         }
 
-        //private void listBox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-
-        //}
+     
         private void label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             
@@ -253,6 +250,7 @@ namespace Talk2Me_login
            
             Label chatPartnerLable = (Label)sender;
             Users user = connSQL.getUser(chatPartnerLable.Content.ToString());
+            
             if (user == null) MessageBox.Show("An error has occurred. You might have accesed a user that does not exist anymore.", "Talk2Me Error", MessageBoxButton.OK, MessageBoxImage.Stop);
             else
             {
@@ -273,7 +271,10 @@ namespace Talk2Me_login
             {
                 MessageBoxResult msgboxresult = MessageBox.Show("Are you sure you want to exit Talk2Me?", "Talk2Me", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (msgboxresult == MessageBoxResult.Yes)
+                {
                     Application.Current.Shutdown();
+                    Process.GetCurrentProcess().Kill();
+                }
                 else e.Cancel = true;
             }
         }
@@ -330,9 +331,49 @@ namespace Talk2Me_login
             connSQL.update(user.Username, (comboBox1.SelectedItem as ComboBoxItem).Content.ToString());
             if ((comboBox1.SelectedItem as ComboBoxItem).Content.ToString().CompareTo("Offline") == 0)
             {
+
+                StateStatus mess = new StateStatus();
+                mess.Id = 1;
+                mess.State = "Offline";
+                mess.Status = "";
+                mess.User = user.Username;
+                byte[] buff = mess.Serialize();
+
+                ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 5);
+
                 parrentwdw.Show();
                 signout = true;
                 this.Close();
+            }
+
+            if ((comboBox1.SelectedItem as ComboBoxItem).Content.ToString().CompareTo("Available") == 0)
+            {
+                
+
+
+                StateStatus mess = new StateStatus() ;
+                mess.Id = 1;
+                mess.State ="Available";
+                mess.Status = "";
+                mess.User = user.Username;
+                byte[] buff = mess.Serialize();
+
+                ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 5);
+            }
+
+
+            if ((comboBox1.SelectedItem as ComboBoxItem).Content.ToString().CompareTo("Invisible") == 0)
+            {
+                
+
+                StateStatus mess = new StateStatus();
+                mess.Id = 1;
+                mess.State = "Invisible";
+                mess.Status = "";
+                mess.User = user.Username;
+                byte[] buff = mess.Serialize();
+
+                ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 5);
             }
         }
 
@@ -345,7 +386,8 @@ namespace Talk2Me_login
         private void MenuItemManageContacts_Click(object sender, RoutedEventArgs e)
         {
             Manage_Contacts mc = new Manage_Contacts();
-            mc.setUser(this.user);
+            mc.setUser(this.user); 
+            
             mc.setParrentWindow(this);
             mc.SelectGroupComboBox.Text = "Select group";
             mc.Show();

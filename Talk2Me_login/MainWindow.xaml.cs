@@ -69,14 +69,17 @@ namespace Talk2Me_login
                                             {
                                                 connSQL.update(UsernameTextbox.Text, "Invisible");
                                                 user.Status = "Invisible";
+                                                
                                             }
                                             else
                                             {
                                                 connSQL.update(UsernameTextbox.Text, "Available");
                                                 user.Status = "Available";
+                                                
                                             }
                                             ClientWindow clientwin = new ClientWindow();
                                             clientwin.setUser(user);
+                                            
                                             this.Hide();
                                             clientwin.Show();
                                         }

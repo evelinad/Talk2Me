@@ -13,7 +13,7 @@
                 </GroupBox>
                 <GroupBox Header="Remove group" Height="107" HorizontalAlignment="Left" Margin="258,1,0,0" Name="groupBox4" VerticalAlignment="Top" Width="234">
                     <Grid>
-                        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="RemoveGrouptextBox" VerticalAlignment="Top" Width="209" />
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="RemoveGrouptextBox" VerticalAlignment="Top" Width="209" TextChanged="RemoveGrouptextBox_TextChanged" />
                         <Button Content="Remove" Height="23" HorizontalAlignment="Left" Margin="10,41,0,0" Name="RemoveGroupButton" VerticalAlignment="Top" Width="75" Click="button2_Click" />
                     </Grid>
                 </GroupBox>
@@ -25,7 +25,7 @@
                     <Grid>
                         <TextBox Height="23" HorizontalAlignment="Left" Margin="10,46,0,0" Name="AddContacttextBox" VerticalAlignment="Top" Width="209" />
                         <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="10,77,0,0" Name="AddContactbutton" VerticalAlignment="Top" Width="75" Click="button3_Click" />
-                        <ComboBox Text="Select group" IsEditable="True" IsReadOnly="True" Height="23" HorizontalAlignment="Left" Margin="10,11,0,0" Name="SelectGroupComboBox" VerticalAlignment="Top" Width="209" />
+                        <ComboBox Text="Select group" IsEditable="True" IsReadOnly="True" Height="23" HorizontalAlignment="Left" Margin="10,11,0,0" Name="SelectGroupComboBox" VerticalAlignment="Top" Width="209" SelectionChanged="SelectGroupComboBox_SelectionChanged" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Header="Remove contact" Height="107" HorizontalAlignment="Left" Margin="258,1,0,0" Name="groupBox6" VerticalAlignment="Top" Width="234">

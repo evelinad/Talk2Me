@@ -252,6 +252,8 @@ namespace Talk2Me_login
 
         public static void IdentifyMessage(byte[] buffer, int type, Socket handler)
         {
+
+           // MessageBox.Show("Show mess");
             switch (type)
             {
                 case 1:
@@ -265,11 +267,13 @@ namespace Talk2Me_login
               //      message(mess, handler);
                     break;
                 case 4:
+                   
                     Message t = Message.Desserialize(buffer);
                     message(t, handler);
                     break;
                 case 5:
-                //    message(StateStatus.Desserialize(buffer), handler);
+                 
+                    message(StateStatus.Desserialize(buffer), handler);
                     break;
             }
         }
@@ -277,18 +281,23 @@ namespace Talk2Me_login
 
         public static void message(Message mess, Socket handler)
         {
-           // MessageBox.Show(cw.currentUser.Username + " " + cw.conversationPartnerUser.Username );
-
-            //cw.addMessageToRichBox("PIZda");
-            //cw.textBox1.Text ="euuu";
-            //cw.Dispatcher.Invoke(new Action(() => cw.label1.Content = "Irantha signed in"));
+           
             cw.Dispatcher.Invoke(new Action(() => cw.addMessageToRichBox(mess.Data)));
-                //cw.label1.Content = "Irantha signed in"));
+           
 
-            //cw.label1.Content = "pisic";
+        }
+
+        public static void message(StateStatus mess, Socket handler)
+        {
+
+            MessageBox.Show(mess.User + " " +  mess.State);
+           
             
 
         }
+
+        
+
 
     }
 }

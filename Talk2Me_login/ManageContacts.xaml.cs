@@ -55,6 +55,7 @@ namespace Talk2Me_login
             connSQL.updateGF(this.currentUser.Username, this.currentUser.GroupsFriends);
             parrentCW.user = currentUser;
             parrentCW.updateContactListBox();
+            SendMessageFriendOp(1, AddGrouptextBox.Text, "");
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -82,6 +83,22 @@ namespace Talk2Me_login
                 break;
 
             }
+
+            SendMessageFriendOp(2, RemoveGrouptextBox.Text, "");
+            
+          
+        }
+
+
+        private void SendMessageFriendOp(int type, String Group, String Friend)
+        {
+
+            FriendOp op  = new FriendOp();
+            op.Id = type;
+            op.Group = Group;
+            op.Friend = Friend;
+            byte[] buff = op.Serialize();
+            ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 2);
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
@@ -109,7 +126,11 @@ namespace Talk2Me_login
                     //    newlabel.Content = friends[0];
             //        MessageBox.Show(friends[0]);
                     if (SelectGroupComboBox.Text.CompareTo(friends[0]) == 0)
+                    {
+                        SendMessageFriendOp(3, friends[0], AddContacttextBox.Text);
                         break;
+
+                    }
                 }
                 newgroupfriend = friends[0] + "[" + AddContacttextBox.Text;
 
@@ -141,6 +162,10 @@ namespace Talk2Me_login
             {
                 MessageBox.Show(exc.ToString());
             }
+
+
+
+          
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
@@ -152,6 +177,18 @@ namespace Talk2Me_login
             //MessageBox.Show(this.currentUser.GroupsFriends);
             connSQL.updateGF(currentUser.Username, currentUser.GroupsFriends);
             parrentCW.updateContactListBox();
+
+            SendMessageFriendOp(4, "", RemoveContacttextBox.Text);
+
+        }
+
+        private void RemoveGrouptextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SelectGroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
