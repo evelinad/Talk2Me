@@ -263,6 +263,8 @@ namespace Talk2Me_login
                 cw.setConversationPartnerUser ( user);
              //   MessageBox.Show(cw.conversationPartnerUser.FirstName);
                 cw.Show();
+                ClientServerCommunicator.cw = cw;
+
             }
         }
         protected override void OnClosing( CancelEventArgs e)

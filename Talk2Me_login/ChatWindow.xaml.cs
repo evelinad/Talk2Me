@@ -140,6 +140,33 @@ namespace Talk2Me_login
             }
         }
 
+
+        public void addMessageToRichBox(String mess)
+        {
+
+            Paragraph paragraph = new Paragraph();
+            paragraph.LineHeight = 1;
+
+            Run name = new Run();
+            name.Text = conversationPartnerUser.FirstName + " " + conversationPartnerUser.LastName + " : ";
+
+            name.Foreground = new SolidColorBrush(Colors.Red);
+            paragraph.Inlines.Add(new Bold(name));
+
+            //    paragraph.Inlines.Add(new Run(name.text));
+            richTextBox1.Document.Blocks.Add(paragraph);
+            name = new Run();
+            name.Text = mess + "";
+            paragraph = new Paragraph();
+            paragraph.LineHeight = 1;
+
+            Emoticons(name.Text, paragraph);
+            richTextBox1.ScrollToEnd();
+            this.Focus();
+
+            
+        }
+
         private void SendMessage()
         {
 
@@ -167,16 +194,17 @@ namespace Talk2Me_login
             Message mess = new Message();
             mess.SourceName = currentUser.Username;
             mess.DestinationName = conversationPartnerUser.Username;
-            mess.Data = "Sunt prea frumos!";
+            mess.Data = ChattextBox.Text;
             byte[] buff = mess.Serialize();
+            
             ClientServerCommunicator.SendData(ClientServerCommunicator.server_socket, buff, 4);
 
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-     //      MessageBox.Show(conversationPartnerUser.FirstName);
-            //richTextBox1.AppendText(textBox1.Text + "\r\n");
+         
+           
             
             SendMessage();
             ChattextBox.Clear();

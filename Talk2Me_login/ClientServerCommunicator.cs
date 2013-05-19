@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 // Loosely inspired on http://msdn.microsoft.com/en-us/library/bew39x2a.aspx
 
@@ -20,6 +21,7 @@ namespace Talk2Me_login
 
         static ManualResetEvent connectDone = new ManualResetEvent(false);
         static ManualResetEvent sendDone = new ManualResetEvent(false);
+        public static ChatWindow cw;
 
         public static Socket server_socket; 
 
@@ -47,38 +49,6 @@ namespace Talk2Me_login
         }
 
 
-        /*
-        public static void SendMessageAsync(string message)
-        {
-            // Initiate connecting to the server
-            Socket connection = Connect();
-
-            // block this thread until we have connected
-            // normally your program would just continue doing other work
-            // but we've got nothing to do :)
-            connectDone.WaitOne();
-
-            Console.Out.WriteLine("Connected to server");
-
-            // Start sending the data
-            SendData(connection, message);
-            sendDone.WaitOne();
-            Console.Out.WriteLine("Message successfully sent");
-
-
-            StateObject state = new StateObject();
-            state.connection = connection;
-
-            connection.BeginReceive(state.buffer, 0, StateObject.bufferSize,
-                SocketFlags.None, new AsyncCallback(ReadCallback), state);
-
-        }
-       
-         */
-
-
-
-
         public static Socket Connect()
         {
             try
@@ -87,8 +57,15 @@ namespace Talk2Me_login
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 client.BeginConnect(serverAddress, new AsyncCallback(ConnectCallback), client);
+                
+                
+                StateObject new_state = new StateObject();
+                new_state.connection = client;
 
+                client.BeginReceive(new_state.buffer, 0, StateObject.bufferSize,
+                    SocketFlags.None, new AsyncCallback(ReadCallback), new_state);
 
+                
                 return client;
             }
             catch (Exception e)
@@ -163,6 +140,8 @@ namespace Talk2Me_login
             catch (Exception e)
             {
                 Console.Out.WriteLine(e.Message);
+                MessageBox.Show(e.Message);
+
             }
         }
 
@@ -239,14 +218,28 @@ namespace Talk2Me_login
                     }
                     else
                     {
-                        handler.Shutdown(SocketShutdown.Both);
-                        handler.Close();
+                        int type;
+                        //handler.Shutdown(SocketShutdown.Both);
+                        //handler.Close();
+                        byte[] buffer = new byte[state.message.Length - 4];
+                        Array.ConstrainedCopy(state.message, 4, buffer, 0, state.message.Length - 4);
 
-                        Console.Out.WriteLine("Received message: \n");
-                        Mesaj t = Mesaj.Desserialize(state.message);
-                        String a = "" + t.Id + " " + t.Name;
-                        //Console.Out.WriteLine(Encoding.UTF8.GetString(state.message));
-                        Console.Out.WriteLine(a);
+                        type = BitConverter.ToInt32(state.message, 0);
+
+                       // MessageBox.Show("Received message: \n" + " " + cw.currentUser.Username);
+
+
+                        IdentifyMessage(buffer, type, handler);
+
+                        Console.WriteLine("");
+
+                        StateObject new_state = new StateObject();
+                        new_state.connection = handler;
+
+                        handler.BeginReceive(new_state.buffer, 0, StateObject.bufferSize,
+                            SocketFlags.None, new AsyncCallback(ReadCallback), new_state);
+
+
                     }
                 }
             }
@@ -256,6 +249,46 @@ namespace Talk2Me_login
             }
         }
 
+
+        public static void IdentifyMessage(byte[] buffer, int type, Socket handler)
+        {
+            switch (type)
+            {
+                case 1:
+         //           message(Authentication.Desserialize(buffer), handler);
+                    break;
+                case 2:
+           //         message(FriendOp.Desserialize(buffer), handler);
+                    break;
+                case 3:
+             //       Login mess = Login.Desserialize(buffer);
+              //      message(mess, handler);
+                    break;
+                case 4:
+                    Message t = Message.Desserialize(buffer);
+                    message(t, handler);
+                    break;
+                case 5:
+                //    message(StateStatus.Desserialize(buffer), handler);
+                    break;
+            }
+        }
+
+
+        public static void message(Message mess, Socket handler)
+        {
+           // MessageBox.Show(cw.currentUser.Username + " " + cw.conversationPartnerUser.Username );
+
+            //cw.addMessageToRichBox("PIZda");
+            //cw.textBox1.Text ="euuu";
+            //cw.Dispatcher.Invoke(new Action(() => cw.label1.Content = "Irantha signed in"));
+            cw.Dispatcher.Invoke(new Action(() => cw.addMessageToRichBox(mess.Data)));
+                //cw.label1.Content = "Irantha signed in"));
+
+            //cw.label1.Content = "pisic";
+            
+
+        }
 
     }
 }
